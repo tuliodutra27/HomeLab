@@ -16,18 +16,50 @@ Homelab pessoal rodando em um Lenovo IdeaPad 320, com acesso externo e serviços
 ## Objetivos
 
 - [ ] Configurar servidor para rodar com a tela fechada
-- [ ] Configurar acesso externo (domínio + túnel ou port forward)
-- [ ] Subir serviços via Docker/Docker Compose
+- [ ] Instalar Tailscale para acesso remoto seguro
+- [ ] Instalar Docker
+- [ ] Instalar CasaOS como painel de gestão
+- [ ] Configurar Nginx Proxy Manager para URLs dos apps
+- [ ] Rodar apps Python como containers
 - [ ] Monitoramento do servidor (uptime, recursos)
 - [ ] Backups automáticos
+
+## Stack
+
+| Camada | Tecnologia |
+|--------|-----------|
+| Acesso remoto | Tailscale (VPN mesh, funciona com CGNAT) |
+| Containers | Docker + Docker Compose |
+| Painel | CasaOS |
+| Reverse proxy | Nginx Proxy Manager |
+| Apps | Python (FastAPI, Flask, etc.) |
+
+## Ordem de instalação
+
+```
+1. bash scripts/01-install-tailscale.sh
+2. bash scripts/02-install-docker.sh
+3. bash scripts/03-install-casaos.sh
+4. Instalar Nginx Proxy Manager via App Store do CasaOS
+```
 
 ## Estrutura do Repositório
 
 ```
 HomeLab/
-├── docs/          # Documentação e guias de configuração
-├── scripts/       # Scripts de setup e automação
-└── services/      # Docker Compose e configurações dos serviços
+├── docs/
+│   ├── 01-tailscale.md           # Acesso remoto
+│   ├── 02-docker.md              # Instalação do Docker
+│   ├── 03-casaos.md              # Painel CasaOS
+│   ├── 04-nginx-proxy-manager.md # Reverse proxy e URLs
+│   └── 05-python-app.md          # Deploy de apps Python
+├── scripts/
+│   ├── 01-install-tailscale.sh
+│   ├── 02-install-docker.sh
+│   └── 03-install-casaos.sh
+└── services/
+    └── nginx-proxy-manager/
+        └── docker-compose.yml
 ```
 
 ## Configurações Iniciais
