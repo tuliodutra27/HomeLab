@@ -15,6 +15,16 @@ cd services/nginx-proxy-manager
 docker compose up -d
 ```
 
+## Portas
+
+| Função | Porta |
+|--------|-------|
+| Painel admin | 81 |
+| HTTP | 8080 |
+| HTTPS | 8443 |
+
+> Portas 80 e 443 são ocupadas pelo CasaOS.
+
 ## Acesso ao painel de administração
 
 ```
