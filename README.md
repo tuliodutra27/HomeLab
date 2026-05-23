@@ -39,14 +39,14 @@ Homelab pessoal rodando em um Lenovo IdeaPad 320, com acesso externo e serviços
 
 | URL | Serviço | Porta |
 |-----|---------|-------|
-| `homelab.io` | CasaOS | 8888 |
-| `uniasselvi-sjb.homelab.io` | Student Enrollment Tracker | 5000 |
-| `nextcloud.homelab.io` | Nextcloud | 10081 |
-| `netdata.homelab.io` | Netdata | 19999 |
-| `ihatemoney.homelab.io` | IHateMoney | 8001 |
-| `adguard.homelab.io` | AdGuard Home | 3001 |
+| `casa.homelab` | CasaOS | 8888 |
+| `uniasselvi-sjb.homelab` | Student Enrollment Tracker | 5000 |
+| `nextcloud.homelab` | Nextcloud | 10081 |
+| `netdata.homelab` | Netdata | 19999 |
+| `ihatemoney.homelab` | IHateMoney | 8001 |
+| `adguard.homelab` | AdGuard Home | 3001 |
 
-> Todos os domínios resolvem via AdGuard Home com rewrite `*.homelab.io` e `homelab.io` → IP Tailscale do servidor.
+> Todos os domínios resolvem via AdGuard Home com rewrite `*.homelab` → IP Tailscale do servidor. `.homelab` não é um TLD real, sem conflito com a internet.
 
 ## Ordem de instalação
 
