@@ -40,7 +40,7 @@ Homelab pessoal rodando em um Lenovo IdeaPad 320, com acesso externo e serviços
 | URL | Serviço | Porta |
 |-----|---------|-------|
 | `casa.homelab` | CasaOS | 8888 |
-| `uniasselvi-sjb.homelab` | Student Enrollment Tracker | 5000 |
+| `uniasselvi-sjb.homelab` | Uniasselvi SJB | 5000 |
 | `nextcloud.homelab` | Nextcloud | 10081 |
 | `netdata.homelab` | Netdata | 19999 |
 | `ihatemoney.homelab` | IHateMoney | 8001 |
