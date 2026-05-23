@@ -15,12 +15,12 @@ Homelab pessoal rodando em um Lenovo IdeaPad 320, com acesso externo e serviços
 
 ## Objetivos
 
-- [ ] Configurar servidor para rodar com a tela fechada
-- [ ] Instalar Tailscale para acesso remoto seguro
-- [ ] Instalar Docker
-- [ ] Instalar CasaOS como painel de gestão
-- [ ] Configurar Nginx Proxy Manager para URLs dos apps
-- [ ] Rodar apps Python como containers
+- [x] Configurar servidor para rodar com a tela fechada
+- [x] Instalar Tailscale para acesso remoto seguro
+- [x] Instalar Docker
+- [x] Instalar CasaOS como painel de gestão
+- [x] Configurar Nginx Proxy Manager para URLs dos apps
+- [x] Rodar apps Python como containers
 - [ ] Monitoramento do servidor (uptime, recursos)
 - [ ] Backups automáticos
 
@@ -29,10 +29,24 @@ Homelab pessoal rodando em um Lenovo IdeaPad 320, com acesso externo e serviços
 | Camada | Tecnologia |
 |--------|-----------|
 | Acesso remoto | Tailscale (VPN mesh, funciona com CGNAT) |
+| DNS interno | AdGuard Home |
 | Containers | Docker + Docker Compose |
-| Painel | CasaOS |
-| Reverse proxy | Nginx Proxy Manager |
+| Painel | CasaOS (porta 8888) |
+| Reverse proxy | Nginx Proxy Manager (porta 80) |
 | Apps | Python (FastAPI, Flask, etc.) |
+
+## Serviços ativos
+
+| URL | Serviço | Porta |
+|-----|---------|-------|
+| `homelab.io` | CasaOS | 8888 |
+| `uniasselvi-sjb.homelab.io` | Student Enrollment Tracker | 5000 |
+| `nextcloud.homelab.io` | Nextcloud | 10081 |
+| `netdata.homelab.io` | Netdata | 19999 |
+| `ihatemoney.homelab.io` | IHateMoney | 8001 |
+| `adguard.homelab.io` | AdGuard Home | 3001 |
+
+> Todos os domínios resolvem via AdGuard Home com rewrite `*.homelab.io` e `homelab.io` → IP Tailscale do servidor.
 
 ## Ordem de instalação
 
@@ -40,7 +54,8 @@ Homelab pessoal rodando em um Lenovo IdeaPad 320, com acesso externo e serviços
 1. bash scripts/01-install-tailscale.sh
 2. bash scripts/02-install-docker.sh
 3. bash scripts/03-install-casaos.sh
-4. Instalar Nginx Proxy Manager via App Store do CasaOS
+4. Instalar Nginx Proxy Manager via docker compose (services/nginx-proxy-manager/)
+5. Instalar AdGuard Home via docker compose (services/adguard-home/)
 ```
 
 ## Estrutura do Repositório
