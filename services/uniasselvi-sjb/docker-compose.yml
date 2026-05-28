@@ -1,0 +1,20 @@
+services:
+  app:
+    build: .
+    container_name: uniasselvi-sjb
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/app/data
+      - ./uploads:/app/uploads
+    environment:
+      - FLASK_ENV=production
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared-uniasselvi
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TUNNEL_TOKEN}
+    depends_on:
+      - app
