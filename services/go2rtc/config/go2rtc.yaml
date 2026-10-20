@@ -1,0 +1,20 @@
+api:
+  listen: ":1984"
+  username: ${GO2RTC_USER}
+  password: ${GO2RTC_PASS}
+
+rtsp:
+  listen: ":8554"
+
+webrtc:
+  listen: ":8555"
+
+streams:
+  # Samsung S21 FE com o app IP Webcam (porta padrão 8080)
+  # RTSP H.264 + áudio G.711 — sem transcodificação, quase zero de CPU no servidor
+  s21fe:
+    - rtsp://${CAM_USER}:${CAM_PASS}@192.168.1.115:8080/h264_ulaw.sdp
+
+  # Fallback MJPEG (mais banda, menos qualidade) caso o RTSP não funcione
+  s21fe_mjpeg:
+    - http://${CAM_USER}:${CAM_PASS}@192.168.1.115:8080/video

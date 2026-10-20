@@ -1,0 +1,11 @@
+services:
+  go2rtc:
+    image: alexxit/go2rtc:latest
+    container_name: go2rtc
+    restart: unless-stopped
+    # host network: necessário para o WebRTC anunciar os IPs reais (LAN e Tailscale)
+    # Portas usadas: 1984 (web/API), 8554 (RTSP), 8555 (WebRTC tcp/udp)
+    network_mode: host
+    env_file: .env
+    volumes:
+      - ./config:/config

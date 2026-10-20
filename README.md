@@ -34,6 +34,7 @@ Homelab pessoal rodando em um Lenovo IdeaPad 320, com acesso externo e serviços
 | Painel | CasaOS (porta 8888) |
 | Reverse proxy | Nginx Proxy Manager (porta 80) |
 | Apps | Python (FastAPI, Flask, etc.) |
+| Câmera | go2rtc + IP Webcam (Android) |
 
 ## Serviços ativos
 
@@ -45,6 +46,7 @@ Homelab pessoal rodando em um Lenovo IdeaPad 320, com acesso externo e serviços
 | `netdata.homelab` | Netdata | 19999 |
 | `ihatemoney.homelab` | IHateMoney | 8001 |
 | `adguard.homelab` | AdGuard Home | 3001 |
+| `<IP-TAILSCALE>:1984` | go2rtc (câmera S21 FE) | 1984 |
 
 > Todos os domínios resolvem via AdGuard Home com rewrite `*.homelab` → IP Tailscale do servidor. `.homelab` não é um TLD real, sem conflito com a internet.
 
@@ -56,6 +58,7 @@ Homelab pessoal rodando em um Lenovo IdeaPad 320, com acesso externo e serviços
 3. bash scripts/03-install-casaos.sh
 4. Instalar Nginx Proxy Manager via docker compose (services/nginx-proxy-manager/)
 5. Instalar AdGuard Home via docker compose (services/adguard-home/)
+6. Instalar go2rtc via docker compose (services/go2rtc/) — câmera IP Webcam
 ```
 
 ## Estrutura do Repositório
@@ -67,12 +70,19 @@ HomeLab/
 │   ├── 02-docker.md              # Instalação do Docker
 │   ├── 03-casaos.md              # Painel CasaOS
 │   ├── 04-nginx-proxy-manager.md # Reverse proxy e URLs
-│   └── 05-python-app.md          # Deploy de apps Python
+│   ├── 05-python-app.md          # Deploy de apps Python
+│   └── 06-camera-ip-webcam.md    # Câmera com celular Android
 ├── scripts/
 │   ├── 01-install-tailscale.sh
 │   ├── 02-install-docker.sh
 │   └── 03-install-casaos.sh
 └── services/
+    ├── adguard-home/
+    │   └── docker-compose.yml
+    ├── go2rtc/
+    │   ├── docker-compose.yml
+    │   ├── .env.example
+    │   └── config/go2rtc.yaml
     └── nginx-proxy-manager/
         └── docker-compose.yml
 ```
