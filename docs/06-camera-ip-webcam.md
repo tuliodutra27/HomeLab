@@ -36,6 +36,16 @@ Teste da própria rede de casa: abra `http://192.168.1.115:8080` no navegador.
 
 Arquivos em `services/go2rtc/`.
 
+### Opção rápida (script)
+
+```bash
+bash scripts/04-install-go2rtc.sh
+```
+
+O script testa se o celular responde, pede as senhas, cria o `.env`, sobe o container e mostra as URLs.
+
+### Opção manual
+
 ```bash
 cd services/go2rtc
 cp .env.example .env

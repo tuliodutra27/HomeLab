@@ -58,7 +58,7 @@ Homelab pessoal rodando em um Lenovo IdeaPad 320, com acesso externo e serviços
 3. bash scripts/03-install-casaos.sh
 4. Instalar Nginx Proxy Manager via docker compose (services/nginx-proxy-manager/)
 5. Instalar AdGuard Home via docker compose (services/adguard-home/)
-6. Instalar go2rtc via docker compose (services/go2rtc/) — câmera IP Webcam
+6. bash scripts/04-install-go2rtc.sh   # câmera IP Webcam
 ```
 
 ## Estrutura do Repositório
@@ -75,7 +75,8 @@ HomeLab/
 ├── scripts/
 │   ├── 01-install-tailscale.sh
 │   ├── 02-install-docker.sh
-│   └── 03-install-casaos.sh
+│   ├── 03-install-casaos.sh
+│   └── 04-install-go2rtc.sh
 └── services/
     ├── adguard-home/
     │   └── docker-compose.yml
